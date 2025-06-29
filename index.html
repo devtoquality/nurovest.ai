@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Neurovest Strategies</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background-color: white;
+      color: #222;
+    }
+
+    header {
+      background-color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo-title {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-title img {
+      height: 80px;
+      margin-right: 1rem;
+    }
+
+    .logo-title h1 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0;
+      color: #333;
+    }
+
+    nav.nav-links a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: #444;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    nav.nav-links a:hover {
+      color: #0070f3;
+    }
+
+    main {
+      padding: 1rem 2rem;
+      width: 100%; 
+      margin: 0 auto;
+    }
+
+    .strategy-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+      gap: 1rem;
+    }
+
+    select {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      min-width: 250px;
+    }
+
+    .new-strategy-link {
+      background-color: #0070f3;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
+
+    .new-strategy-link:hover {
+      background-color: #005ad5;
+    }
+
+    /* Tabs */
+    .tabs {
+      margin-top: 1rem;
+    }
+
+    .tab-buttons {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .tab-buttons button {
+      background: none;
+      border: none;
+      padding: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #666;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .tab-buttons button.active {
+      border-bottom: 3px solid #0070f3;
+      color: #0070f3;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 1.5rem;
+      border: 1px solid #e0e0e0;
+      border-top: none;
+      border-radius: 0 0 6px 6px;
+      background-color: #f9f9f9;
+      width: 100%;  
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .tab-content h2 {
+      margin-top: 0;
+      color: #222;
+    }
+
+    .tab-content p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .strategy-controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      nav.nav-links {
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+	<a href="index.html" style="text-decoration: none; color: inherit;">
+  		<div class="logo-title" style="cursor: pointer;">
+    			<img src="nv_logo3.png" alt="Neurovest Logo">
+    			<h1>Neurovest.ai – Strategy Center</h1>
+  		</div>
+	</a>
+    <nav class="nav-links">
+      <a href="index.html">Strategies</a>
+      <a href="index.html">Portfolio</a>
+      <a href="index.html">AI Security Selection</a>
+    </nav>
+  </header>
+
+<main>
+  <div class="strategy-controls">
+    <select id="strategySelect">
+      <option value="strat1">Strategy 1 – Swing Trading</option>
+      <option value="strat2">Strategy 2 – Mean Reversion</option>
+      <option value="strat3">Strategy 3 – Momentum AI</option>
+    </select>
+    <!--<a href="create_strategy.html" class="new-strategy-link">+ Create New Strategy</a>-->
+    <a href="index.html" class="new-strategy-link">+ Create New Strategy</a>
+  </div>
+
+  <div class="tabs">
+    <div class="tab-buttons">
+      <button class="active" onclick="showTab(0)">📈Overview</button>
+      <button onclick="showTab(1)">📊Risk/Reward</button>
+      <button onclick="showTab(2)">🧮Details</button>
+    </div>
+
+    <div class="tab-content active" id="tab-overview">
+      <h2>📈 Strategy Overview</h2>
+      <img id="strategyImage" src="strat1_graphs.png" alt="Strategy Graphs" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+    </div>
+
+    <div class="tab-content" id="tab-risk">
+      <!--<h2>Risk/Reward Results</h2>-->
+      <h2>📊 Risk Dashboard</h2>
+      <iframe id="strategyIframe" src="strat1_risk_dashboard.html" width="100%" height="600px" style="border: none; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></iframe>
+    </div>
+
+    <div class="tab-content" id="tab-detail">
+      <h2>🧮 Strategy Details</h2>
+      <iframe id="strategyIframe" src="strat1_details.html" width="100%" height="600px" style="border: none; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></iframe>
+    </div>
+  </div>
+</main>
+
+  <script>
+    function showTab(index) {
+      const tabs = document.querySelectorAll('.tab-content');
+      const buttons = document.querySelectorAll('.tab-buttons button');
+
+      tabs.forEach((tab, i) => {
+        tab.classList.toggle('active', i === index);
+        buttons[i].classList.toggle('active', i === index);
+      });
+    }
+
+    // Optional: update content dynamically based on strategy selected
+    const strategySelect = document.getElementById('strategySelect');
+    strategySelect.addEventListener('change', function () {
+      const selected = this.value;
+      const overview = document.getElementById('tab-overview');
+      const detail = document.getElementById('tab-detail');
+      const risk = document.getElementById('tab-risk');
+
+      if (selected === "strat1") {
+        overview.querySelector('p').textContent = "This strategy focuses on medium-term trends using AI-based signals. Ideal for active portfolio rotation and tactical entries.";
+        detail.querySelector('p').textContent = "Uses moving averages, momentum, and ML classifiers. Adapts with ongoing retraining to ensure robustness.";
+        risk.querySelector('p').innerHTML = "Sharpe Ratio: 1.42<br>Max Drawdown: -5.8%<br>Annualized Return: 18.7%";
+      } else if (selected === "strat2") {
+        overview.querySelector('p').textContent = "Captures short-term price reversions using Bollinger Bands and volatility filters.";
+        detail.querySelector('p').textContent = "Combines statistical signals with adaptive thresholds to exploit mean reversion patterns in crypto pairs.";
+        risk.querySelector('p').innerHTML = "Sharpe Ratio: 1.18<br>Max Drawdown: -4.2%<br>Annualized Return: 15.3%";
+      } else if (selected === "strat3") {
+        overview.querySelector('p').textContent = "Uses AI to detect momentum bursts and trend accelerations across assets.";
+        detail.querySelector('p').textContent = "Relies on LSTM neural nets trained on volume-adjusted price data to predict short-term momentum.";
+        risk.querySelector('p').innerHTML = "Sharpe Ratio: 1.61<br>Max Drawdown: -6.1%<br>Annualized Return: 22.4%";
+      }
+    });
+  </script>
+
+<footer style="text-align: center; padding: 1rem 0;">
+  <p>© 2025 Neurovest.ai. All rights reserved.</p>
+</footer>
+
+
+</body>
+</html>
