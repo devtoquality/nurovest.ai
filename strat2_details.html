@@ -1,0 +1,95 @@
+
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>📋 Strategy Configuration</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, sans-serif;
+                margin: 40px;
+                background-color: #f7f9fc;
+                color: #2c3e50;
+            }
+            .container {
+                max-width: 900px;
+                margin: 0 auto;
+                background: white;
+                padding: 30px 40px;
+                border-radius: 12px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            }
+            h1 {
+                font-size: 1.6rem;
+                margin-bottom: 25px;
+                color: #1a1a1a;
+                border-bottom: 2px solid #e0e6ed;
+                padding-bottom: 10px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 0.95rem;
+            }
+            th, td {
+                text-align: left;
+                padding: 14px 12px;
+                border-bottom: 1px solid #eef2f7;
+            }
+            th {
+                background-color: #f0f3f8;
+                font-weight: 600;
+                color: #334e68;
+            }
+            tr:hover td {
+                background-color: #f9fcff;
+            }
+            ul {
+                margin: 0;
+                padding-left: 20px;
+            }
+            ul li {
+                margin-bottom: 4px;
+            }
+            @media (max-width: 768px) {
+                body {
+                    margin: 20px;
+                }
+                .container {
+                    padding: 20px;
+                }
+                table {
+                    font-size: 0.9rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>📋 Strategy Configuration</h1>
+            <h3>This strategy uses AI-based signals.</h3>
+            <table>
+                <tr><th>Parameter</th><th>Value</th></tr>
+                <tr><td>Stop trading if ptf value is below</td><td>$1,000.00</td></tr>
+                <tr><td>Force sell if asset gain is above</td><td>15.00%</td></tr>
+                <tr><td>RSI Oversold bound</td><td>30</td></tr>
+                <tr><td>RSI Overbought bound</td><td>70</td></tr>
+                <tr><td>RSI Window</td><td>14</td></tr>
+                <tr><td>Default trade amount to executed</td><td>$80.00</td></tr>
+                <tr><td>Algo Trading Frequency</td><td>every 20.0 minutes</td></tr>
+                <tr><td>Bollinger Band Window</td><td>10</td></tr>
+                <tr><td>Bollinger Band Std Devs</td><td>2</td></tr>
+                <tr><td>Minimum Fund to Buy Asset</td><td>x1.30</td></tr>
+                <tr><td>Max amount per asset allowed</td><td>$350.00</td></tr>
+                <tr>
+                    <td>Assets excluded from strategy</td>
+                    <td>
+                        <ul>
+                            <li>PEPE-USD</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+    </html>
+    
