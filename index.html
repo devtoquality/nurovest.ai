@@ -198,6 +198,7 @@
       <button class="active" onclick="showTab(0)">📈Overview</button>
       <button onclick="showTab(1)">📊Risk/Reward</button>
       <button onclick="showTab(2)">🧮Details</button>
+      <button onclick="showTab(3)">📅Backtesting</button>
     </div>
 
     <div class="tab-content active" id="tab-overview">
@@ -224,6 +225,14 @@
         style="border: none; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
 </iframe>
     </div>
+
+<div class="tab-content" id="tab-backtest">
+  <h2>📅 Backtesting Results</h2>
+  <iframe id="backtestIframe" width="100%" height="600"
+    style="border: none; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+  </iframe>
+</div>
+
   </div>
 </main>
 
