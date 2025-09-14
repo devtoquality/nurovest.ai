@@ -178,32 +178,24 @@
 
 <main>
   <div class="strategy-controls">
-    <!--<select id="strategySelect">
-      <option value="strat1">Strategy 1 – Technical Signals</option>
-      <option value="strat2">Strategy 2 – Momentum AI</option>
-    </select>-->
+
     <select id="strategySelect" onchange="updateStrategyContent(this.value)">
       <option value="strat1" selected>Strategy 1 – Technical Signals</option>
       <option value="strat2">Strategy 2 – Momentum AI</option>
     </select>
 
-
-
-    <!--<a href="create_strategy.html" class="new-strategy-link">+ Create New Strategy</a>-->
-    <!--<a href="index.html" class="new-strategy-link">+ Create New Strategy</a>-->
   </div>
 
   <div class="tabs">
     <div class="tab-buttons">
       <button class="active" onclick="showTab(0)">📈Overview</button>
-      <button onclick="showTab(1)">📊Risk/Reward</button>
+      <button onclick="showTab(1)">📊Performance</button>
       <button onclick="showTab(2)">🧮Details</button>
-      <button onclick="showTab(3)">📅Backtesting</button>
+      <!--<button onclick="showTab(3)">📅Performance</button>-->
     </div>
 
     <div class="tab-content active" id="tab-overview">
       <h2>📈 Strategy Overview</h2>
-      <!--<img id="strategyImage" src="strat1_graphs.png" alt="Strategy Graphs" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">-->
       <img id="strategyImage" alt="Strategy Graphs"
         style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
 
@@ -226,9 +218,9 @@
 </iframe>
     </div>
 
-<div class="tab-content" id="tab-backtest">
-  <h2>📅 Backtesting Results</h2>
-  <iframe id="backtestIframe" width="100%" height="600"
+<div class="tab-content" id="tab-performance">
+  <h2>📅 Performance Results</h2>
+  <iframe id="performanceIframe" width="100%" height="600"
     style="border: none; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
   </iframe>
 </div>
@@ -239,7 +231,7 @@
 <script>
 function updateStrategyContent(strategy) {
   document.getElementById("strategyImage").src = `${strategy}_graphs.png`;
-  document.getElementById("riskIframe").src = `${strategy}_risk_dashboard.html`;
+  document.getElementById("riskIframe").src = `${strategy}_ptf_detail.html`;
   document.getElementById("detailsIframe").src = `${strategy}_details.html`;
 }
 
